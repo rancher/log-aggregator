@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: localflex-clean
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      name: localflex-clean
+      labels:
+        app: localflex-clean
+    spec:
+      containers:
+      - image: micheliac/clean_flexvolume:dev
+        imagePullPolicy: Always
+        name: local-volume
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /flexmnt
+          name: flexdriver-mount
+      volumes:
+      - name: flexdriver-mount
+        hostPath:
+          path:  /home/kubernetes/flexvolume/

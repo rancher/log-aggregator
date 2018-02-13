@@ -1,0 +1,12 @@
+package: github.com/rancher/local-flexvolume
+import:
+- package: github.com/asaskevich/govalidator
+  version: 7d2e70ef918f16bd6455529af38304d6d025c952
+- package: github.com/sirupsen/logrus
+  version: v1.0.3
+- package: github.com/urfave/cli
+  version: v1.18.0
+- package: golang.org/x/crypto
+  version: d94f6bc902c2970500950e88ab1a54a0c26bec48
+- package: golang.org/x/sys/unix
+  version: 3dbebcf8efb6a5011a60c2b4591c1022a759af8a

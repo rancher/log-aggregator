@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta2 # for versions after 1.9.0 use apps/v1
+kind: Deployment
+metadata:
+  name: testnginx
+  labels:
+    app: testnginx
+spec:
+  selector:
+    matchLabels:
+      app: testnginx
+  template:
+    metadata:
+      name: testnginx
+      labels:
+        app: testnginx
+    spec:
+      containers:
+      - name: testnginx
+        image: nginx
+        imagePullPolicy: "Always"
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        volumeMounts:
+        - mountPath: /tmp
+          name: myvoll
+      volumes:
+      - name: myvoll
+        flexVolume:
+          driver: "rancher/rancherflex"
+          fsType: "ext4"
+          options:
+            clusterName: "myClusterName1"
+            projectName: "myprojectName1"
+            workloadName: "myworkloadName1"
+            containerName: "mycontainerName1"
+            namespace: "mynamespace"
+            format: "nginx"
+            volumeName: "myVolumeName1"
+        
