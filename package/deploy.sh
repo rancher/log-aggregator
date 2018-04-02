@@ -3,8 +3,8 @@
 echo "begging deploy...."
 set -o errexit
 
-VENDOR=rancher
-DRIVER=rancherflex
+VENDOR=rancher.io
+DRIVER=localflexvolume
 
 # Assuming the single driver file is located at /$DRIVER inside the DaemonSet image.
 

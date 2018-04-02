@@ -18,8 +18,8 @@ spec:
           privileged: true
         volumeMounts:
         - mountPath: /flexmnt
-          name: flexdriver-mount
+          name: flexvolume-driver
       volumes:
-      - name: flexdriver-mount
+      - name: flexvolume-driver
         hostPath:
           path:  /home/kubernetes/flexvolume/

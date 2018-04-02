@@ -29,7 +29,7 @@ spec:
       volumes:
       - name: myvoll
         flexVolume:
-          driver: "rancher/rancherflex"
+          driver: "rancher.io/localflexvolume"
           fsType: "ext4"
           options:
             clusterName: "myClusterName1"

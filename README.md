@@ -1,7 +1,7 @@
 local-flexvolume
 ========
 
-## ***FILL THIS OUT WITH A USEFUL DESCRIPTION OF THIS REPO***
+this is for mount log inside path to specify host path
 
 ## Building
 
