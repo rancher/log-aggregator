@@ -12,7 +12,7 @@ import (
 	"github.com/urfave/cli"
 
 	valid "github.com/asaskevich/govalidator"
-	"github.com/rancher/local-flexvolume/generator"
+	"github.com/rancher/log-aggregator/generator"
 )
 
 const (

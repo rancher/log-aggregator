@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rancher/local-flexvolume/driver"
+	"github.com/rancher/log-aggregator/driver"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 )
 
 var VERSION = "v0.0.0-dev"
-var logFileName = "/tmp/rancher-flexvolume.log"
+var logFileName = "/var/log/rancher-flexvolume.log"
 
 func setLog(file *os.File) *logrus.Logger {
 	log := logrus.New()
@@ -30,7 +30,7 @@ func main() {
 	logger := setLog(file)
 
 	app := cli.NewApp()
-	app.Name = "local-flexvolume"
+	app.Name = "log-aggregator"
 	app.Version = VERSION
 	app.Usage = "local-flexvolme driver to mount log to workload logging path"
 

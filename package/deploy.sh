@@ -3,8 +3,8 @@
 echo "begging deploy...."
 set -o errexit
 
-VENDOR=rancher.io
-DRIVER=localflexvolume
+VENDOR=cattle.io
+DRIVER=log-aggregator
 
 # Assuming the single driver file is located at /$DRIVER inside the DaemonSet image.
 
@@ -16,7 +16,7 @@ if [ ! -d "/flexmnt/$driver_dir" ]; then
   mkdir -p "/flexmnt/$driver_dir"
 fi
 
-cp "/$DRIVER" "/flexmnt/$driver_dir/.$DRIVER"
+cp "/usr/bin/$DRIVER" "/flexmnt/$driver_dir/.$DRIVER"
 mv -f "/flexmnt/$driver_dir/.$DRIVER" "/flexmnt/$driver_dir/$DRIVER"
 
 while : ; do

@@ -10,15 +10,15 @@ SUFFIX=""
 cd $(dirname $0)/../package
 
 TAG=${TAG:-${VERSION}${SUFFIX}}
-REPO=${REPO:-micheliac}
+REPO=${REPO:-rancher}
 
 if echo $TAG | grep -q dirty; then
     TAG=dev
 fi
 
-cp ../bin/local-flexvolume .
+cp ../bin/log-aggregator .
 
-IMAGE=${REPO}/local-flexvolume:${TAG}
+IMAGE=${REPO}/log-aggregator:${TAG}
 docker build -t ${IMAGE} .
 echo ${IMAGE} > ../dist/images
 echo Built ${IMAGE}

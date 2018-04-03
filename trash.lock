@@ -1,4 +1,4 @@
-package: github.com/rancher/local-flexvolume
+package: github.com/rancher/log-aggregator
 import:
 - package: github.com/asaskevich/govalidator
   version: 7d2e70ef918f16bd6455529af38304d6d025c952

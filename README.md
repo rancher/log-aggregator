@@ -1,4 +1,4 @@
-local-flexvolume
+log-aggregator
 ========
 
 this is for mount log inside path to specify host path
@@ -10,7 +10,7 @@ this is for mount log inside path to specify host path
 
 ## Running
 
-`./bin/local-flexvolume`
+`./bin/log-aggregator`
 
 ## License
 Copyright (c) 2018 [Rancher Labs, Inc.](http://rancher.com)

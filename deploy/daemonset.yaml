@@ -11,7 +11,7 @@ spec:
         app: localflex-deploy
     spec:
       containers:
-      - image: micheliac/local-flexvolume:dev
+      - image: rancher/log-aggregator:v0.1.0
         imagePullPolicy: Always
         name: local-volume
         securityContext:
