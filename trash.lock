@@ -2,6 +2,8 @@ package: github.com/rancher/log-aggregator
 import:
 - package: github.com/asaskevich/govalidator
   version: 7d2e70ef918f16bd6455529af38304d6d025c952
+- package: github.com/pkg/errors
+  version: v0.8.0-6-g2b3a18b
 - package: github.com/sirupsen/logrus
   version: v1.0.3
 - package: github.com/urfave/cli
