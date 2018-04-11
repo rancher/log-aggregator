@@ -23,13 +23,13 @@ const (
 	mountCmd               = "mount"
 	unmountCmd             = "umount"
 	svcLogBaseDir          = "/var/log/rancher-log-volumes"
-	svcProjectLogConfigDir = "/var/lib/fluentd/etc/config/customer/project"
-	svcClusterLogConfigDir = "/var/lib/fluentd/etc/config/customer/cluster"
+	svcProjectLogConfigDir = "/var/lib/fluentd/etc/config/custom/project"
+	svcClusterLogConfigDir = "/var/lib/fluentd/etc/config/custom/cluster"
 )
 
 const (
-	tmpClusterDir = "/tmp/fluentd/etc/config/customer/cluster"
-	tmpProjectDir = "/tmp/fluentd/etc/config/customer/project"
+	tmpClusterDir = "/tmp/fluentd/etc/config/custom/cluster"
+	tmpProjectDir = "/tmp/fluentd/etc/config/custom/project"
 )
 
 var (
