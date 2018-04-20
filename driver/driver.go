@@ -22,9 +22,9 @@ import (
 const (
 	mountCmd               = "mount"
 	unmountCmd             = "umount"
-	svcLogBaseDir          = "/var/log/rancher-log-volumes"
-	svcProjectLogConfigDir = "/var/lib/fluentd/etc/config/custom/project"
-	svcClusterLogConfigDir = "/var/lib/fluentd/etc/config/custom/cluster"
+	svcLogBaseDir          = "/var/lib/rancher/log-volumes"
+	svcProjectLogConfigDir = "/var/lib/rancher/fluentd/etc/config/custom/project"
+	svcClusterLogConfigDir = "/var/lib/rancher/fluentd/etc/config/custom/cluster"
 )
 
 const (
@@ -302,8 +302,8 @@ func generateCustomiseConfig(generateDir, hostDir string, opts Options) error {
 		"Format":         opts.Format,
 		"Path":           fmt.Sprintf("%s/*.*", hostDir),
 		"Project":        fmt.Sprintf("%s:%s", opts.ClusterID, opts.ProjectID),
-		"ClusterPosPath": fmt.Sprintf("/fluentd/etc/log/custom_cluster_userformat_%s.pos", generateDir),
-		"ProjectPosPath": fmt.Sprintf("/fluentd/etc/log/custom_project_userformat_%s.pos", generateDir),
+		"ClusterPosPath": fmt.Sprintf("/fluentd/log/custom_cluster_userformat_%s.pos", generateDir),
+		"ProjectPosPath": fmt.Sprintf("/fluentd/log/custom_project_userformat_%s.pos", generateDir),
 	}
 
 	tmpClusterConfigFile := path.Join(tmpClusterDir, generateDir+".conf")
