@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "begging deploy...."
+echo "Starting log-aggregator"
 set -o errexit
 
 VENDOR=cattle.io
@@ -10,7 +10,7 @@ DRIVER=log-aggregator
 
 driver_dir=$VENDOR${VENDOR:+"~"}${DRIVER}
 
-echo "begging driver_dir is $driver_dir...."
+echo "driver_dir is $driver_dir"
 
 if [ ! -d "/flexmnt/$driver_dir" ]; then
   mkdir -p "/flexmnt/$driver_dir"
