@@ -14,7 +14,6 @@ import (
 	valid "github.com/asaskevich/govalidator"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"github.com/urfave/cli"
 
 	"github.com/rancher/log-aggregator/generator"
 )
@@ -110,13 +109,17 @@ func (f *FlexVolumeDriver) Mount(args []string) CommonResponse {
 	}(f.Logger)
 	// param check
 	f.Logger.Debugf("mount args: %v", args)
-	if err = checkArgsLen(args, 2); err != nil {
-		return returnErrorResponse(err)
+	switch len(args) {
+	case 2:
+	case 3:
+		logrus.Warnf("flex volume from kubelet is standard, args length is %d", len(args))
+	default:
+		return returnErrorResponse(fmt.Errorf("mount: invalid args num, %v", args))
 	}
 
 	containerPath := args[0]
 	opts := Options{}
-	if err = json.Unmarshal([]byte(args[1]), &opts); err != nil {
+	if err = json.Unmarshal([]byte(args[len(args)-1]), &opts); err != nil {
 		return returnErrorResponse(err)
 	}
 
@@ -165,8 +168,8 @@ func (f *FlexVolumeDriver) Unmount(args []string) CommonResponse {
 	}(f.Logger)
 
 	f.Logger.Debugf("ummount args: %v", args)
-	if err = checkArgsLen(args, 1); err != nil {
-		return returnErrorResponse(err)
+	if len(args) != 1 {
+		return returnErrorResponse(fmt.Errorf("unmount: invalid args num, %v", args))
 	}
 
 	containerPath := args[0]
@@ -194,14 +197,6 @@ func unMount(containerPath string) error {
 	cmd := exec.Command(unmountCmd, containerPath)
 	if output, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf(string(output))
-	}
-	return nil
-}
-
-func checkArgsLen(args cli.Args, expectedNum int) error {
-	if len(args) < expectedNum {
-		err := fmt.Errorf("mount: invalid args num, %v", args)
-		return err
 	}
 	return nil
 }
