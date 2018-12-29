@@ -35,7 +35,7 @@ const (
 )
 
 var (
-	predefineFormat = []string{"json", "apache2", "nginx", "rfc3164", "rfc5424"}
+	predefineFormat = []string{"json", "apache2", "nginx", "rfc3164", "rfc5424", "none"}
 	customiseFormat = "customise"
 )
 
