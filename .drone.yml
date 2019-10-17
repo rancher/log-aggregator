@@ -37,7 +37,7 @@ steps:
     password:
       from_secret: docker_password
     username:
-      from_password: docker_username
+      from_secret: docker_username
   when:
     refs:
       include:
